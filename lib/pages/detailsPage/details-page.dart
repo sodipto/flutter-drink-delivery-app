@@ -87,6 +87,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -132,7 +133,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                           'assets/icons/shopping-bag.svg',
                           color: Colors.white,height: 25
                       ),
-                        onPressed: () {}
+                        onPressed: () {
+                          print(size.height);
+                        }
                     )
                 ),
                 Positioned(
@@ -145,7 +148,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       SizedBox(height: 5),
                       Text("Signature Product",style: TextStyle(color: Colors.white,fontSize: 18)),
                       Padding(
-                        padding: EdgeInsets.only(top: size.height * 0.08),
+                        padding: EdgeInsets.only(top:50),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -161,17 +164,17 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Positioned(
                     top: size.height * 0.40,
                     child: Container(
-                      height: size.height,
+                      height: size.height/2+80,
                       width: size.width,
-                      padding: EdgeInsets.only(top: size.height * 0.06 , left: 20,right: 8),
+                      padding: EdgeInsets.only(top: size.height * 0.06 , left: 20,right: 8,bottom: 70),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(40),
                               topRight: Radius.circular(40))
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: ListView(
+                        //crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("Particulars",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold)),
                           SizedBox(height: 15),
@@ -249,14 +252,19 @@ class _ProductDetailsState extends State<ProductDetails> {
                           Text("Service",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold)),
                           SizedBox(height: 15),
                           Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 18)),
-                          SizedBox(height: 15)
+                          SizedBox(height: 30),
+                          SizedBox(height: 25),
+                          Text("Description",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold)),
+                          SizedBox(height: 15),
+                          Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 18)),
+                          SizedBox(height: 30),
                         ],
                       ),
                     )
                 ),
                 Positioned(
-                  top: size.height / 6,
-                  right: 10,
+                  top: size.height * 0.40-180,
+                  right: 0,
                   child: Container(
                     height: 230,
                     width: 200,
