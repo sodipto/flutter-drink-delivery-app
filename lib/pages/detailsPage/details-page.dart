@@ -12,31 +12,31 @@ class _ProductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF9FC743),
-        elevation: 0,
-        leading: Padding(
-          padding: EdgeInsets.only(left:16.0),
-          child: IconButton(
-              icon: SvgPicture.asset(
-                  'assets/icons/left-arrow.svg',
-                  color: Colors.white,height: 25
-              ),
-              onPressed: () => Navigator.pop(context)
-          ),
-        ),
-        actions: [
-          Padding(
-            padding:  EdgeInsets.only(right:12.0),
-            child: IconButton(
-              icon: SvgPicture.asset(
-                'assets/icons/shopping-bag.svg',
-                color: Colors.white,height: 25
-            ),
-            ),
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Color(0xFF9FC743),
+      //   elevation: 0,
+      //   leading: Padding(
+      //     padding: EdgeInsets.only(left:16.0),
+      //     child: IconButton(
+      //         icon: SvgPicture.asset(
+      //             'assets/icons/left-arrow.svg',
+      //             color: Colors.white,height: 25
+      //         ),
+      //         onPressed: () => Navigator.pop(context)
+      //     ),
+      //   ),
+      //   actions: [
+      //     Padding(
+      //       padding:  EdgeInsets.only(right:12.0),
+      //       child: IconButton(
+      //         icon: SvgPicture.asset(
+      //           'assets/icons/shopping-bag.svg',
+      //           color: Colors.white,height: 25
+      //       ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
       backgroundColor: Color(0xFF9FC743),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -98,7 +98,45 @@ class _ProductDetailsState extends State<ProductDetails> {
                   width: double.infinity,
                 ),
                 Positioned(
-                  top: 15,
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    margin: EdgeInsets.only(right: 0),
+                    height: 250,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Color(0xFF92BF2A),
+                          width: 40,
+                        )
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 30,
+                  left: 14,
+                  child: IconButton(
+                      icon: SvgPicture.asset(
+                          'assets/icons/left-arrow.svg',
+                          color: Colors.white,height: 25
+                      ),
+                      onPressed: () => Navigator.pop(context)
+                  )
+                ),
+                Positioned(
+                    top: 30,
+                    right: 14,
+                    child: IconButton(
+                      icon: SvgPicture.asset(
+                          'assets/icons/shopping-bag.svg',
+                          color: Colors.white,height: 25
+                      ),
+                        onPressed: () {}
+                    )
+                ),
+                Positioned(
+                  top: 80,
                   left: 20,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +159,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                 ),
                 Positioned(
-                    top: size.height * 0.30,
+                    top: size.height * 0.40,
                     child: Container(
                       height: size.height,
                       width: size.width,
@@ -217,7 +255,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     )
                 ),
                 Positioned(
-                  top: size.height / 16,
+                  top: size.height / 6,
                   right: 10,
                   child: Container(
                     height: 230,
