@@ -1,5 +1,6 @@
 import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:drink_app/pages/homepage/home-page.dart';
+import 'package:drink_app/pages/test-page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: 'Open Sans'
       ),
       home: HomePage()
     );

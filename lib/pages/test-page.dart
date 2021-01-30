@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class ProductDetails extends StatefulWidget {
+class TestPage extends StatefulWidget {
   @override
-  _ProductDetailsState createState() => _ProductDetailsState();
+  _TestPageState createState() => _TestPageState();
 }
 
-class _ProductDetailsState extends State<ProductDetails> {
+class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -29,10 +28,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           Padding(
             padding:  EdgeInsets.only(right:12.0),
             child: IconButton(
-              icon: SvgPicture.asset(
-                'assets/icons/shopping-bag.svg',
-                color: Colors.white,height: 25
-            ),
+              icon: Icon(Icons.shopping_bag_rounded, color: Colors.white, size: 25),
             ),
           ),
         ],
@@ -48,25 +44,22 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
           ],
         ),
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 25),
         height: 70,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-                icon: SvgPicture.asset(
-                    'assets/icons/edit.svg',
-                    color: Color(0xFFC1C7BA),height: 25
-                ),
-                onPressed: () {}
-                ),
+                icon: Icon(Icons.addchart_outlined,
+                    size: 25, color: Color(0xFFC1C7BA)),
+                onPressed: () {}),
             IconButton(
                 icon: Icon(Icons.favorite_outline_sharp,
-                    size: 30, color: Color(0xFFC1C7BA)),
+                    size: 25, color: Color(0xFFC1C7BA)),
                 onPressed: () {}),
             Container(
-              height: 65,
-              width: 150,
+              height: 60,
+              width: 160,
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
