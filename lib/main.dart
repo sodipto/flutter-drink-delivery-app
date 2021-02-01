@@ -1,3 +1,4 @@
+import 'package:drink_app/pages/cartPage/cart-page.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:drink_app/pages/homepage/home-page.dart';
 import 'package:drink_app/pages/test-page.dart';

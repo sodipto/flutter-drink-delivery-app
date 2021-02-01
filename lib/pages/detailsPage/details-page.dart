@@ -1,3 +1,5 @@
+import 'package:drink_app/constants/color-utils.dart';
+import 'package:drink_app/pages/cartPage/cart-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -71,10 +73,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                color: Color(0xFF86C100),
+                color: buttonColor,
                 textColor: Colors.white,
                 padding: EdgeInsets.all(12.0),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CartPage()),
+                  );
+                },
                 child: Text(
                   "Purchased",
                   style: TextStyle(
@@ -253,7 +260,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                           SizedBox(height: 15),
                           Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 18)),
                           SizedBox(height: 30),
-                          SizedBox(height: 25),
                           Text("Description",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold)),
                           SizedBox(height: 15),
                           Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 18)),
