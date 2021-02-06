@@ -5,7 +5,6 @@ class Product {
   String color;
   String imgfUrl;
 
-
   Product(this.name, this.color, this.imgfUrl);
 
   Product.fromJson(Map<String, dynamic> json) {
@@ -23,6 +22,7 @@ class Product {
     return data;
   }
 }
+
 
 class CartItem {
   String name;
