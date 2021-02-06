@@ -24,6 +24,7 @@ class Product {
 }
 
 
+
 class CartItem {
   String name;
   String color;
