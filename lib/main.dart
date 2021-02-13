@@ -1,3 +1,4 @@
+import 'package:drink_app/pages/authPage/auth-page.dart';
 import 'package:drink_app/pages/cartPage/cart-page.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:drink_app/pages/homepage/home-page.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: HomePage()
+      home: AuthPage() //HomePage()
     );
   }
 }
