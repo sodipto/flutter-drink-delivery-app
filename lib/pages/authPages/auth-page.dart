@@ -1,4 +1,5 @@
 import 'package:drink_app/constants/color-utils.dart';
+import 'package:drink_app/pages/authPages/login-page.dart';
 import 'package:drink_app/pages/homepage/home-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -69,7 +70,7 @@ class _AuthPageState extends State<AuthPage> {
                          onPressed: () {
                            Navigator.push(
                              context,
-                             MaterialPageRoute(builder: (context) => HomePage()),
+                             MaterialPageRoute(builder: (context) => LoginPage()),
                            );
                          },
                          child: Text(
@@ -88,7 +89,7 @@ class _AuthPageState extends State<AuthPage> {
                          onPressed:(){
                            Navigator.push(
                              context,
-                             MaterialPageRoute(builder: (context) => HomePage()),
+                             MaterialPageRoute(builder: (context) => LoginPage()),
                            );
                          },
                          child: Text(
@@ -119,7 +120,7 @@ class _AuthPageState extends State<AuthPage> {
                        onPressed:() {
                          Navigator.push(
                            context,
-                           MaterialPageRoute(builder: (context) => HomePage()),
+                           MaterialPageRoute(builder: (context) => LoginPage()),
                          );
                        },
                        child: Row(

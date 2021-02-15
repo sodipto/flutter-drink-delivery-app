@@ -1,4 +1,5 @@
 import 'package:drink_app/pages/authPages/auth-page.dart';
+import 'package:drink_app/pages/authPages/login-page.dart';
 import 'package:drink_app/pages/cartPage/cart-page.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:drink_app/pages/homepage/home-page.dart';
@@ -14,14 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cold Drink ',
+      title: 'Cold Drink',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: AuthPage() //HomePage()
+      home: LoginPage() //HomePage()
     );
   }
 }
