@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: LoginPage() //HomePage()
+      home: AuthPage() //HomePage()
     );
   }
 }
