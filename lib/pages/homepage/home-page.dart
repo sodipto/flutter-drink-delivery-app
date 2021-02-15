@@ -1,8 +1,11 @@
+import 'package:drink_app/constants/color-utils.dart';
+import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/models.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -46,12 +49,17 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text("Coolcat",
                       style:
                           TextStyle(fontSize: 42, fontWeight: FontWeight.w900)),
-                  Icon(Icons.shopping_cart, size: 32)
+                  IconButton(
+                      icon: SvgPicture.asset(
+                          'assets/icons/messenger.svg',
+                          color: appBarIConColor,height: 28
+                      ),
+                      onPressed: () {}
+                  )
                 ],
               ),
               SizedBox(height: 30),
@@ -118,34 +126,46 @@ class _HomePageState extends State<HomePage> {
         ),
 
         child: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  title: Text('Home'),
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                  'assets/icons/home.svg',
+                  color: _selectedIndexTab==0?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
               ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.shop),
-                  title: Text('Shop'),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                  'assets/icons/shopping-bag.svg',
+                  color: _selectedIndexTab==1?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                title: Text('My'),
+              label: 'Shop',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                  'assets/icons/user.svg',
+                  color: _selectedIndexTab==2?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
               ),
-            ],
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
-            currentIndex: _selectedIndexTab,
-            selectedItemColor: Color(0xFF86C100),
-            unselectedItemColor: Color(0xFFB1B5A3),
-            selectedFontSize: 18,
-            unselectedFontSize: 16,
-            iconSize: 35,
-            onTap:(index){
-               setState(() {
-                 _selectedIndexTab=index;
-               });
-            },
-            elevation: 5
+              label: 'My',
+            ),
+          ],
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          currentIndex: _selectedIndexTab,
+          selectedItemColor: bottomNavigationSelectedColor,
+          selectedIconTheme: IconThemeData(
+              color: bottomNavigationSelectedColor
+          ),
+          unselectedItemColor: Color(0xFFB1B5A3),
+          selectedFontSize: 18,
+          unselectedFontSize: 16,
+          iconSize: 30,
+          onTap:(index){
+            setState(() {
+              _selectedIndexTab=index;
+            });
+          },
+          elevation: 3,
         ),
       ),
     );
@@ -198,7 +218,7 @@ class _HomePageState extends State<HomePage> {
             height: 175,
             width: 150,
             decoration: BoxDecoration(
-                color: _getColorFromHex(product.color), borderRadius: BorderRadius.circular(22)),
+                color: Converter.getColorFromHex(product.color), borderRadius: BorderRadius.circular(22)),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -216,7 +236,12 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildBuyProductCard(Product product) {
     return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProductDetails()),
+          );
+        },
         child: Padding(
           padding: EdgeInsets.only(top: 10),
           child: Container(
@@ -227,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                     height: 100,
                     width: 100,
                     decoration: BoxDecoration(
-                        color: _getColorFromHex(product.color),
+                        color: Converter.getColorFromHex(product.color),
                         borderRadius: BorderRadius.circular(22)),
                     child: Center(
                       child: Image.asset(
@@ -244,13 +269,13 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(product.name,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Color(0xFF1F2906))),
                         SizedBox(height: 10),
-                        Text("Signature Product",style: TextStyle(color:Color(0xFFB1B5A3))),
+                        Text("Signature Product",style: TextStyle(color:opacityColor)),
                       ],
                     ),
                   ),
                   RichText(
                     text: TextSpan(
-                      text: '\$  ',
+                      text: '\¥  ',
                       style: TextStyle(color: Colors.black,fontSize: 16),
                       children: <TextSpan>[
                         TextSpan(text: '24', style: TextStyle(fontSize: 36,fontWeight: FontWeight.bold,color: Color(0xFF1F2906))),
@@ -263,13 +288,4 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  Color _getColorFromHex(String hexColor) {
-    hexColor = hexColor.replaceAll("#", "");
-    if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
-    }
-    if (hexColor.length == 8) {
-      return Color(int.parse("0x$hexColor"));
-    }
-  }
 }
