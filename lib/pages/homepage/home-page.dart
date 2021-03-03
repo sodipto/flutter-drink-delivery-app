@@ -38,6 +38,67 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+            child: BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                      'assets/icons/home.svg',
+                      color: _selectedIndexTab==0?bottomNavigationSelectedColor:Color(0xFFC1C7BA),
+                      height: 25
+                  ),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                      'assets/icons/shopping-bag.svg',
+                      color: _selectedIndexTab==1?bottomNavigationSelectedColor:Color(0xFFC1C7BA),
+                      height: 25
+                  ),
+                  label: 'Shop',
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                      'assets/icons/user.svg',
+                      color: _selectedIndexTab==2?bottomNavigationSelectedColor:Color(0xFFC1C7BA),
+                      height: 25
+                  ),
+                  label: 'My',
+                ),
+              ],
+              //type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.white,
+              currentIndex: _selectedIndexTab,
+              selectedItemColor: bottomNavigationSelectedColor,
+              selectedIconTheme: IconThemeData(
+                  color: bottomNavigationSelectedColor
+              ),
+              unselectedItemColor: Color(0xFFB1B5A3),
+              selectedFontSize: 16,
+              unselectedFontSize: 14,
+              iconSize: 25,
+              onTap:(index){
+                setState(() {
+                  _selectedIndexTab=index;
+                });
+              },
+              elevation: 0,
+            ),
+          ),
+        ),
       body: SingleChildScrollView(
         physics: PageScrollPhysics(),
         child: Padding(
@@ -118,56 +179,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(35.0),
-          topRight: Radius.circular(35.0),
-        ),
-
-        child: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                  'assets/icons/home.svg',
-                  color: _selectedIndexTab==0?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                  'assets/icons/shopping-bag.svg',
-                  color: _selectedIndexTab==1?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
-              ),
-              label: 'Shop',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                  'assets/icons/user.svg',
-                  color: _selectedIndexTab==2?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
-              ),
-              label: 'My',
-            ),
-          ],
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          currentIndex: _selectedIndexTab,
-          selectedItemColor: bottomNavigationSelectedColor,
-          selectedIconTheme: IconThemeData(
-              color: bottomNavigationSelectedColor
-          ),
-          unselectedItemColor: Color(0xFFB1B5A3),
-          selectedFontSize: 18,
-          unselectedFontSize: 16,
-          iconSize: 30,
-          onTap:(index){
-            setState(() {
-              _selectedIndexTab=index;
-            });
-          },
-          elevation: 3,
-        ),
-      ),
+      )
     );
   }
 
