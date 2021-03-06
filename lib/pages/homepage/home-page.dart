@@ -1,5 +1,6 @@
 import 'package:drink_app/constants/color-utils.dart';
 import 'package:drink_app/constants/converter-helper.dart';
+import 'package:drink_app/data/static-data.dart';
 import 'package:drink_app/models.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:drink_app/pages/profilePage/profile-page.dart';
@@ -14,23 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> catagories = [
-    "Recommend",
-    "Black Tea",
-    "Green Tea",
-    "Rose tea",
-    "Jasmine Tea"
-  ];
-  List<Product> products=[
-    new Product('Green Tea','9FC743','assets/images/drink-red.png'),
-    new Product('Jasmine Tea','CBDB51','assets/images/drink-red.png'),
-    new Product('Black Tea','E8DC9A','assets/images/drink-red.png'),
-    new Product('Rose tea','FFE4E4','assets/images/drink-red.png' ),
-    new Product('Green Tea','9FC743','assets/images/drink-red.png'),
-    new Product('Jasmine Tea','CBDB51','assets/images/drink-red.png'),
-    new Product('Black Tea','E8DC9A','assets/images/drink-red.png'),
-    new Product('Rose tea','FFE4E4','assets/images/drink-red.png' ),
-  ];
 
   int selectedindex = 0;
   int _selectedIndexTab = 0;
@@ -157,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: catagories.length,
+                    itemCount: TeaCatagories.length,
                     itemBuilder: (context, index) => buildCatagory(index)),
               ),
               SizedBox(height: 30),
@@ -166,8 +150,8 @@ class _HomePageState extends State<HomePage> {
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: products.length,
-                  itemBuilder: (context, index) => buildProductCard(products[index]),
+                  itemCount: Products.length,
+                  itemBuilder: (context, index) => buildProductCard(Products[index]),
                 ),
               ),
               SizedBox(height: 30),
@@ -178,8 +162,8 @@ class _HomePageState extends State<HomePage> {
                   ListView.builder(
                     shrinkWrap: true,
                     physics: ClampingScrollPhysics(),
-                    itemCount: products.length,
-                    itemBuilder: (context, index) => buildBuyProductCard(products[index]),
+                    itemCount: Products.length,
+                    itemBuilder: (context, index) => buildBuyProductCard(Products[index]),
                   )
                 ],
               )
@@ -203,7 +187,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(catagories[index],
+            Text(TeaCatagories[index],
                 style: TextStyle(
                     fontSize: selectedindex == index ? 18 : 14,
                     color: selectedindex == index

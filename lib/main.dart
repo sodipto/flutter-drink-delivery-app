@@ -2,6 +2,7 @@ import 'package:drink_app/pages/authPages/auth-page.dart';
 import 'package:drink_app/pages/authPages/login-page.dart';
 import 'package:drink_app/pages/cartPage/cart-page.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
+import 'package:drink_app/pages/homepage/dashboard.dart';
 import 'package:drink_app/pages/homepage/home-page.dart';
 import 'package:drink_app/pages/profilePage/profile-page.dart';
 import 'package:drink_app/pages/test-page.dart';
@@ -20,10 +21,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        canvasColor: Colors.transparent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: AuthPage()
+      home: Dashboard()
     );
   }
 }

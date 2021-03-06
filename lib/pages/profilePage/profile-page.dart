@@ -78,8 +78,21 @@ class _ProfileState extends State<Profile> {
                 Container(
                   height: size.height,
                   padding: EdgeInsets.only(
-                      top: size.height * 0.10, left: 16, right: 5),
+                      top: 0, left: 0, right: 0),
                   width: double.infinity,
+                ),
+                Positioned(
+                  top: 0,
+                  child: Container(
+                    height: size.height * 0.45,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/bg.png'),
+                            fit: BoxFit.fitHeight
+                        )
+                    ),
+                  ),
                 ),
                 Positioned(
                     top: MediaQuery
