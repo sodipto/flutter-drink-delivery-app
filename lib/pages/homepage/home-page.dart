@@ -2,6 +2,7 @@ import 'package:drink_app/constants/color-utils.dart';
 import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/models.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
+import 'package:drink_app/pages/profilePage/profile-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -93,6 +94,12 @@ class _HomePageState extends State<HomePage> {
               onTap:(index){
                 setState(() {
                   _selectedIndexTab=index;
+                  if(_selectedIndexTab==2) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  }
                 });
               },
               elevation: 0,

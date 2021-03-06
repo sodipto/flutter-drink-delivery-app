@@ -171,7 +171,7 @@ class _ProfileState extends State<Profile> {
                           children: [
                             SizedBox(height: 15),
                             Divider(thickness: thikness, color: Colors.grey),
-                            ProfileItem(text:'My Collection' ,icon: 'assets/icons/home.svg'),
+                            ProfileItem(text:'My Collection' ,icon: 'assets/icons/star.svg'),
                             Divider(thickness: thikness, color: Colors.grey),
                             ProfileItem(text:'Purchase record' ,icon: 'assets/icons/edit.svg'),
                             Divider(thickness: thikness, color: Colors.grey),
