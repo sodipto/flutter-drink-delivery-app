@@ -122,7 +122,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                 ),
                 Positioned(
-                  top: 30,
+                  top: MediaQuery.of(context).padding.top,
                   left: 14,
                   child: IconButton(
                       icon: SvgPicture.asset(
@@ -133,7 +133,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   )
                 ),
                 Positioned(
-                    top: 30,
+                    top: MediaQuery.of(context).padding.top,
                     right: 14,
                     child: IconButton(
                       icon: SvgPicture.asset(
@@ -146,7 +146,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     )
                 ),
                 Positioned(
-                  top: 80,
+                  top: MediaQuery.of(context).padding.top + 60,
                   left: 20,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
