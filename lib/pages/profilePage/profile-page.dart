@@ -1,4 +1,5 @@
 import 'package:drink_app/constants/color-utils.dart';
+import 'package:drink_app/pages/comment/product-review.dart';
 import 'package:drink_app/pages/homepage/dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,14 +11,11 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
-  double thikness=0.5;
+  double thikness = 0.5;
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery
-        .of(context)
-        .size;
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xFF9fc742),
       bottomNavigationBar: ClipRRect(
@@ -57,17 +55,23 @@ class _ProfileState extends State<Profile> {
             currentIndex: 2,
             selectedItemColor: bottomNavigationSelectedColor,
             selectedIconTheme:
-            IconThemeData(color: bottomNavigationSelectedColor),
+                IconThemeData(color: bottomNavigationSelectedColor),
             unselectedItemColor: Color(0xFFB1B5A3),
             selectedFontSize: 16,
             unselectedFontSize: 14,
             iconSize: 25,
             onTap: (index) {
               setState(() {
-                if(index==0) {
+                if (index == 0) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Dashboard()),
+                  );
+                }
+                else if(index==1) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProductReview()),
                   );
                 }
               });
@@ -85,8 +89,7 @@ class _ProfileState extends State<Profile> {
               children: [
                 Container(
                   height: size.height,
-                  padding: EdgeInsets.only(
-                      top: 0, left: 0, right: 0),
+                  padding: EdgeInsets.only(top: 0, left: 0, right: 0),
                   width: double.infinity,
                 ),
                 Positioned(
@@ -95,29 +98,21 @@ class _ProfileState extends State<Profile> {
                     height: size.height * 0.45,
                     width: size.width,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/bg.png'),
-                            fit: BoxFit.fitHeight
-                        )
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/bg.png'),
+                          fit: BoxFit.fitHeight),
                     ),
                   ),
                 ),
                 Positioned(
-                    top: MediaQuery
-                        .of(context)
-                        .padding
-                        .top + 10,
+                    top: MediaQuery.of(context).padding.top + 10,
                     right: 14,
                     child: IconButton(
-                        icon: SvgPicture.asset(
-                            'assets/icons/copy.svg',
-                            color: Colors.white, height: 25
-                        ),
+                        icon: SvgPicture.asset('assets/icons/copy.svg',
+                            color: Colors.white, height: 25),
                         onPressed: () {
                           print(size.height);
-                        }
-                    )
-                ),
+                        })),
                 Positioned(
                   top: size.height * 0.45 / 2 - 65,
                   left: size.width / 2 - 60,
@@ -133,45 +128,47 @@ class _ProfileState extends State<Profile> {
                                 boxShadow: <BoxShadow>[
                                   BoxShadow(
                                     color: Colors.black12,
-                                    blurRadius: 5,
+                                    blurRadius: 4,
+                                    spreadRadius: 4
                                   ),
                                 ],
                                 image: DecorationImage(
                                     image: AssetImage('assets/images/user.png'),
-                                    fit: BoxFit.fill
-                                )
+                                    fit: BoxFit.fill),
                             ),
                           ),
                           Positioned(
-                              bottom: 0,
-                              left: 20,
-                              child: Container(
-                                height: 24,
-                                width: 80,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF6e8e01),
-                                  borderRadius: BorderRadius.all(
-                                      Radius.circular(12.0)),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset('assets/icons/diamond.svg',
-                                        color: Colors.white, height: 12),
-                                    SizedBox(width: 5),
-                                    Text("VIP",
-                                        style: TextStyle(color: Colors.white))
-                                  ],
-                                ),
+                            bottom: 0,
+                            left: 20,
+                            child: Container(
+                              height: 24,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF6e8e01),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
                               ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset('assets/icons/diamond.svg',
+                                      color: Colors.white, height: 12),
+                                  SizedBox(width: 5),
+                                  Text("VIP",
+                                      style: TextStyle(color: Colors.white))
+                                ],
+                              ),
+                            ),
                           )
                         ],
                       ),
                       SizedBox(height: 10),
-                      Text("Roton Pondit", style: TextStyle(color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold))
+                      Text("Roton Pondit",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -186,25 +183,30 @@ class _ProfileState extends State<Profile> {
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(30),
-                                topRight: Radius.circular(30))
-                        ),
+                                topRight: Radius.circular(30))),
                         child: ListView(
                           children: [
                             SizedBox(height: 15),
                             Divider(thickness: thikness, color: Colors.grey),
-                            ProfileItem(text:'My Collection' ,icon: 'assets/icons/star.svg'),
+                            ProfileItem(
+                                text: 'My Collection',
+                                icon: 'assets/icons/star.svg'),
                             Divider(thickness: thikness, color: Colors.grey),
-                            ProfileItem(text:'Purchase record' ,icon: 'assets/icons/edit.svg'),
+                            ProfileItem(
+                                text: 'Purchase record',
+                                icon: 'assets/icons/edit.svg'),
                             Divider(thickness: thikness, color: Colors.grey),
-                            ProfileItem(text:'Notice' ,icon: 'assets/icons/notice.svg'),
+                            ProfileItem(
+                                text: 'Notice',
+                                icon: 'assets/icons/notice.svg'),
                             Divider(thickness: thikness, color: Colors.grey),
-                            ProfileItem(text:'Settings' ,icon: 'assets/icons/settings.svg'),
+                            ProfileItem(
+                                text: 'Settings',
+                                icon: 'assets/icons/settings.svg'),
                             Divider(thickness: thikness, color: Colors.grey),
                             SizedBox(height: 30),
                           ],
-                        )
-                    )
-                ),
+                        ))),
                 Positioned(
                     top: size.height * 0.45 - 40,
                     right: 0,
@@ -212,7 +214,8 @@ class _ProfileState extends State<Profile> {
                     child: Padding(
                       padding: EdgeInsets.only(left: 30, right: 25),
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 16,horizontal: 0),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 16, horizontal: 0),
                         height: 80,
                         width: size.width,
                         decoration: BoxDecoration(
@@ -223,17 +226,24 @@ class _ProfileState extends State<Profile> {
                                 blurRadius: 8,
                               ),
                             ],
-                            borderRadius: BorderRadius.all(Radius.circular(50))
-                        ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50))),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Column(
                               children: [
-                                Text('1053',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                                Text('1053',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold)),
                                 SizedBox(height: 3),
-                                Text('Balance',style: TextStyle(color: opacityColor,fontSize: 12,fontWeight: FontWeight.w400))
+                                Text('Balance',
+                                    style: TextStyle(
+                                        color: opacityColor,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400))
                               ],
                             ),
                             Container(
@@ -243,18 +253,24 @@ class _ProfileState extends State<Profile> {
                             ),
                             Column(
                               children: [
-                                SvgPicture.asset('assets/icons/wallet.svg',
-                                  color: brandColor, height: 24,width: 24,),
+                                SvgPicture.asset(
+                                  'assets/icons/wallet.svg',
+                                  color: brandColor,
+                                  height: 24,
+                                  width: 24,
+                                ),
                                 SizedBox(height: 3),
-                                Text('My Wallet',style: TextStyle(color: opacityColor, fontSize: 12,fontWeight: FontWeight.w400))
+                                Text('My Wallet',
+                                    style: TextStyle(
+                                        color: opacityColor,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400))
                               ],
                             ),
-
                           ],
                         ),
                       ),
-                    )
-                ),
+                    )),
               ],
             )
           ],
@@ -265,32 +281,31 @@ class _ProfileState extends State<Profile> {
 }
 
 class ProfileItem extends StatelessWidget {
-  final  String text;
+  final String text;
   final String icon;
   final Function onTap;
 
-  const ProfileItem({
-    Key key,
-    @required this.text,
-    @required this.icon,
-    this.onTap=null
-  }) : super(key: key);
+  const ProfileItem(
+      {Key key, @required this.text, @required this.icon, this.onTap = null})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: onTap,
-      contentPadding: EdgeInsets.only(left: 0.0, right: 0.0,top: 0,bottom: 0),
-      leading: SvgPicture.asset(this.icon,
-          color: brandColor, height: 22,width: 22,),
+      contentPadding: EdgeInsets.only(left: 0.0, right: 0.0, top: 0, bottom: 0),
+      leading: SvgPicture.asset(
+        this.icon,
+        color: brandColor,
+        height: 22,
+        width: 22,
+      ),
       title: Text(this.text,
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w600)),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
       trailing: IconButton(
         padding: EdgeInsets.zero,
         constraints: BoxConstraints(),
-        icon:
-        Icon(Icons.navigate_next, size: 32, color: IConColor),
+        icon: Icon(Icons.navigate_next, size: 32, color: IConColor),
       ),
     );
   }
