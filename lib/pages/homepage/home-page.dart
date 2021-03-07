@@ -3,6 +3,7 @@ import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/data/static-data.dart';
 import 'package:drink_app/models.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
+import 'package:drink_app/pages/homepage/dashboard.dart';
 import 'package:drink_app/pages/profilePage/profile-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -82,6 +83,13 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  }
+                  else if(_selectedIndexTab==0) {
+                    print(0);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Dashboard()),
                     );
                   }
                 });

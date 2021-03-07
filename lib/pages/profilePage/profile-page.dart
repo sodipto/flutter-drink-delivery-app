@@ -1,4 +1,5 @@
 import 'package:drink_app/constants/color-utils.dart';
+import 'package:drink_app/pages/homepage/dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -62,7 +63,14 @@ class _ProfileState extends State<Profile> {
             unselectedFontSize: 14,
             iconSize: 25,
             onTap: (index) {
-              setState(() {});
+              setState(() {
+                if(index==0) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard()),
+                  );
+                }
+              });
             },
             elevation: 0,
           ),
