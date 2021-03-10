@@ -1,6 +1,10 @@
 import 'package:drink_app/constants/color-utils.dart';
 import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/models.dart';
+import 'package:drink_app/pages/comment/product-review.dart';
+import 'package:drink_app/pages/deliveryPages/delivery-page.dart';
+import 'package:drink_app/pages/homepage/dashboard.dart';
+import 'package:drink_app/pages/profilePage/profile-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -76,6 +80,25 @@ class _CartPageState extends State<CartPage> {
           onTap:(index){
             setState(() {
               _selectedIndexTab=index;
+              if(_selectedIndexTab==2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                );
+              }
+              else if(_selectedIndexTab==0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dashboard()),
+                );
+              }
+
+              else if(_selectedIndexTab==1) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProductReview()),
+                );
+              }
             });
           },
         elevation: 3,
@@ -133,7 +156,12 @@ class _CartPageState extends State<CartPage> {
                   color: Color(0xFF86C100),
                   textColor: Colors.white,
                   padding: EdgeInsets.symmetric(vertical:12.0,horizontal: 30),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DeliveryPage()),
+                    );
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
