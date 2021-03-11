@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: ProductReview() //AuthPage()
+      home: ProductReview()
     );
   }
 }
