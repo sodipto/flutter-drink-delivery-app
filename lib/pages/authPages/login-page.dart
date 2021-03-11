@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
             width: double.infinity,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/login4.jpg'),
+                    image: AssetImage('assets/images/login3.jpg'),
                     fit: BoxFit.cover)),
           ),
           Padding(
