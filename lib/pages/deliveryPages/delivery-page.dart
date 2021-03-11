@@ -3,8 +3,10 @@ import 'dart:math';
 import 'package:drink_app/constants/color-utils.dart';
 import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/data/static-data.dart';
+import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../models.dart';
@@ -36,6 +38,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
         icon:  BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
         onTap: () {},
       ));
+
     });
   }
 
@@ -69,8 +72,8 @@ class _DeliveryPageState extends State<DeliveryPage> {
 
   getIcons() async {
     var icon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 3.2),
-        "assets/images/drink-red.png");
+        ImageConfiguration(size: Size(70, 70)),
+        "assets/images/user.png");
     setState(() {
       this.markerIcon = icon;
     });
@@ -79,6 +82,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
   @override
   void initState() {
     super.initState();
+    //this.getIcons();
     addMarker();
     addPolyLine();
   }
@@ -99,6 +103,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 height: size.height * 0.40,
                 width: size.width,
                 child: GoogleMap(
+                  zoomControlsEnabled:false,
                   mapType: MapType.normal,
                   initialCameraPosition: _initPosition,
                   onMapCreated: (GoogleMapController controller) {
@@ -111,6 +116,11 @@ class _DeliveryPageState extends State<DeliveryPage> {
                     print(position);
                   },
                 ),
+              ),
+              Positioned(
+                top: MediaQuery.of(context).padding.top+10,
+                left: 25,
+                child: SvgPicture.asset('assets/icons/left-arrow.svg',color: Colors.black),
               ),
               Positioned(
                 bottom: -12,
@@ -126,7 +136,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                     boxShadow: <BoxShadow>[
                       BoxShadow(
                           color: Colors.black12,
-                          blurRadius: 4,
+                          blurRadius: 2,
                           spreadRadius: 2),
                     ],
                     borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -143,12 +153,12 @@ class _DeliveryPageState extends State<DeliveryPage> {
                         children: [
                           Text("Delivering...",
                               style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold)),
                           SizedBox(height: 10),
                           Text("Around about 10:30 PM",
                               style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 13,
                                   color: brandColor,
                                   fontWeight: FontWeight.bold)),
                           SizedBox(height: 5),
@@ -174,7 +184,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 color: Colors.white,
                 boxShadow: <BoxShadow>[
                   BoxShadow(
-                      color: Colors.black12, blurRadius: 4, spreadRadius: 2),
+                      color: Colors.black12, blurRadius: 2, spreadRadius: 2),
                 ],
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
@@ -260,7 +270,12 @@ class _DeliveryPageState extends State<DeliveryPage> {
 
   Widget buildCartProduct(Product product) {
     return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProductDetails()),
+          );
+        },
         child: Padding(
           padding: EdgeInsets.only(bottom: 5),
           child: Container(
@@ -274,7 +289,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                         color: Converter.getColorFromHex(product.color),
                         borderRadius: BorderRadius.circular(12)),
                     child: Center(
-                      child: Image.asset(product.imgfUrl, height: 40),
+                      child: Image.asset(product.imgfUrl, height: 45),
                     ),
                   ),
                   SizedBox(width: 20),
@@ -311,6 +326,6 @@ class _DeliveryPageState extends State<DeliveryPage> {
                   ),
                 ],
               )),
-        ));
+  ));
   }
 }

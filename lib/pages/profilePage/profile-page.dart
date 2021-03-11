@@ -1,5 +1,5 @@
 import 'package:drink_app/constants/color-utils.dart';
-import 'package:drink_app/pages/comment/product-review.dart';
+import 'package:drink_app/pages/commentPages/product-review.dart';
 import 'package:drink_app/pages/homepage/dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
