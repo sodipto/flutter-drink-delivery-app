@@ -1,5 +1,6 @@
 import 'package:drink_app/constants/color-utils.dart';
 import 'package:drink_app/pages/cartPage/cart-page.dart';
+import 'package:drink_app/pages/commentPages/product-review.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -60,12 +61,22 @@ class _ProductDetailsState extends State<ProductDetails> {
                     'assets/icons/edit.svg',
                     color: Color(0xFFC1C7BA),height: 25
                 ),
-                onPressed: () {}
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProductReview()),
+                  );
+                }
                 ),
             IconButton(
                 icon: Icon(Icons.favorite_outline_sharp,
                     size: 30, color: Color(0xFFC1C7BA)),
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProductReview()),
+                  );
+                }),
             Container(
               height: 65,
               width: 150,

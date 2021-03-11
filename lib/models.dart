@@ -53,3 +53,25 @@ class CartItem {
     return data;
   }
 }
+
+class Review {
+  String username;
+  String userimage;
+  String comment;
+
+  Review(this.username, this.userimage, this.comment);
+
+  Review.fromJson(Map<String, dynamic> json) {
+    username = json['username'];
+    userimage = json['userimage'];
+    comment = json['comment'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['username'] = this.username;
+    data['userimage'] = this.userimage;
+    data['comment'] = this.comment;
+    return data;
+  }
+}
