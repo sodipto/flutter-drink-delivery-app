@@ -69,7 +69,7 @@ class _AuthPageState extends State<AuthPage> {
                            Navigator.pushNamed(context, '/login');
                          },
                          child: Text(
-                           "Sign up",
+                           "Signup",
                            style: TextStyle(
                              fontSize: 20.0,
                              fontWeight: FontWeight.bold
