@@ -36,7 +36,7 @@ class _AuthPageState extends State<AuthPage> {
              ),
            ),
            Container(
-             padding: EdgeInsets.only(top: size.height*0.05,left: 20,right: 20,bottom: 40),
+             padding: EdgeInsets.only(top: 20, left: 20,right: 20, bottom: 30),
              height: size.height*0.50,
              width: double.infinity,
              decoration: BoxDecoration(
@@ -47,7 +47,7 @@ class _AuthPageState extends State<AuthPage> {
                )
              ),
              child: Column(
-               mainAxisAlignment: MainAxisAlignment.start,
+               mainAxisAlignment: MainAxisAlignment.spaceAround,
                crossAxisAlignment: CrossAxisAlignment.start,
                children: [
                  Text("Drink the best drink in town!", textAlign: TextAlign.center, style: TextStyle(color: brandColor,fontSize: 28,fontWeight: FontWeight.bold)),
@@ -56,8 +56,8 @@ class _AuthPageState extends State<AuthPage> {
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
                      Container(
-                       height: 65,
-                       width: 170,
+                       height: 55,
+                       width: (size.width/2)- 40,
                        child: RaisedButton(
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(30.0),
@@ -69,7 +69,7 @@ class _AuthPageState extends State<AuthPage> {
                            Navigator.pushNamed(context, '/login');
                          },
                          child: Text(
-                           "Logon",
+                           "Sign up",
                            style: TextStyle(
                              fontSize: 20.0,
                              fontWeight: FontWeight.bold
@@ -78,8 +78,8 @@ class _AuthPageState extends State<AuthPage> {
                        ),
                      ),
                      Container(
-                       height: 65,
-                       width: 170,
+                       height: 55,
+                       width: (size.width/2)- 40,
                        child: FlatButton(
                          onPressed:(){
                            Navigator.pushNamed(context, '/login');
@@ -104,9 +104,9 @@ class _AuthPageState extends State<AuthPage> {
                      ),
                    ],
                  ),
-                 SizedBox(height: 25),
+                 //SizedBox(height: 25),
                  Container(
-                     height: 65,
+                     height: 55,
                      width: double.infinity,
                      child: FlatButton(
                        onPressed:() {

@@ -53,12 +53,12 @@ class _ProductPageState extends State<ProductPage> {
                     borderSide: BorderSide.none),
                 filled: true,
                 hintText: "Green Tea",
-                hintStyle: TextStyle(color: Color(0xFFCBCCC9), fontSize: 22),
+                hintStyle: TextStyle(color: Color(0xFFCBCCC9), fontSize: 18),
                 fillColor: Color(0xFFF5F6F2),
                 prefixIcon: Padding(
                   padding: EdgeInsets.only(left: 30.0, right: 10),
                   child:
-                  Icon(Icons.search, size: 28, color: Color(0xFFCBCCC9)),
+                  Icon(Icons.search, size: 24, color: Color(0xFFCBCCC9)),
                 ),
               ),
             ),
@@ -82,16 +82,14 @@ class _ProductPageState extends State<ProductPage> {
               ),
             ),
             SizedBox(height: 30),
-            Text("Will Buy", style: TextStyle(fontSize: 22)),
-            Column(
-              children: [
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: ClampingScrollPhysics(),
-                  itemCount: Products.length,
-                  itemBuilder: (context, index) => buildBuyProductCard(Products[index]),
-                )
-              ],
+            Text("Will Buy", style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
+            SizedBox(height: 20),
+            ListView.builder(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              itemCount: Products.length,
+              itemBuilder: (context, index) => buildBuyProductCard(Products[index]),
             )
           ],
         ),
@@ -113,8 +111,10 @@ class _ProductPageState extends State<ProductPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(TeaCatagories[index],
+                //textAlign: TextAlign.start,
                 style: TextStyle(
-                    fontSize: selectedindex == index ? 18 : 14,
+                    fontWeight: selectedindex == index ?FontWeight.bold:FontWeight.w400,
+                    fontSize: selectedindex == index ? 16 : 16,
                     color: selectedindex == index
                         ? Color(0xFF58910F)
                         : Colors.black)),
@@ -165,7 +165,7 @@ class _ProductPageState extends State<ProductPage> {
           Navigator.pushNamed(context, '/product-details');
         },
         child: Padding(
-          padding: EdgeInsets.only(top: 10),
+          padding: EdgeInsets.only(top: 0),
           child: Container(
               height: 120,
               child: Row(

@@ -133,7 +133,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                           color: Colors.white,height: 25
                       ),
                         onPressed: () {
-                          print(size.height);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage(index: 1)),
+                          );
                         }
                     )
                 ),
@@ -146,18 +149,21 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Text("Green Tea",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold)),
                       SizedBox(height: 5),
                       Text("Signature Product",style: TextStyle(color: Colors.white,fontSize: 18)),
-                      Padding(
-                        padding: EdgeInsets.only(top:50),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("\¥",style: TextStyle(color: Colors.white,fontSize: 24)),
-                            SizedBox(width: 5),
-                            Text("36",style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold))
-                          ],
-                        ),
-                      )
                     ],
+                  ),
+                ),
+                Positioned(
+                  top: size.height * 0.40 - 80,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("\¥",style: TextStyle(color: Colors.white,fontSize: 24)),
+                        SizedBox(width: 5),
+                        Text("36",style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold))
+                      ],
+                    ),
                   ),
                 ),
                 Positioned(
@@ -176,9 +182,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                         //crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("Particulars",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold)),
-                          SizedBox(height: 15),
+                          SizedBox(height: 10),
                           Text("There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 16,fontFamily: 'Open Sans')),
-                          SizedBox(height: 20),
+                          SizedBox(height: 15),
                           Row(
                             children: [
                               Icon(Icons.star,size: 25,color: Color(0xFF86C100)),
@@ -192,7 +198,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               Icon(Icons.star,size: 25,color: Color(0xFF86C100)),
                             ],
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 15),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -248,11 +254,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                           ),
                           SizedBox(height: 15),
                           Text("Service",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold)),
-                          SizedBox(height: 15),
+                          SizedBox(height: 10),
                           Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 16)),
-                          SizedBox(height: 15),
+                          SizedBox(height: 10),
                           Text("Description",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold)),
-                          SizedBox(height: 15),
+                          SizedBox(height: 10),
                           Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 16)),
                           SizedBox(height: 30),
                         ],

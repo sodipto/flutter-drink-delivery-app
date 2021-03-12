@@ -9,7 +9,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  double thikness = 0.5;
+  double thikness = 0.3;
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +177,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text('Balance',
                                     style: TextStyle(
                                         color: opacityColor,
-                                        fontSize: 12,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.w400))
                               ],
                             ),
@@ -198,8 +198,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text('My Wallet',
                                     style: TextStyle(
                                         color: opacityColor,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400))
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500))
                               ],
                             ),
                           ],
