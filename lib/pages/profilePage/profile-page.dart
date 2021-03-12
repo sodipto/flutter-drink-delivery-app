@@ -1,86 +1,21 @@
 import 'package:drink_app/constants/color-utils.dart';
-import 'package:drink_app/pages/commentPages/product-review.dart';
-import 'package:drink_app/pages/homepage/dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Profile extends StatefulWidget {
+class ProfilePage extends StatefulWidget {
   @override
-  _ProfileState createState() => _ProfileState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfilePageState extends State<ProfilePage> {
   double thikness = 0.5;
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: Color(0xFF9fc742),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(0.0),
-          topRight: Radius.circular(0.0),
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: Colors.black,
-                blurRadius: 5,
-              ),
-            ],
-          ),
-          child: BottomNavigationBar(
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/home.svg',
-                    color: Color(0xFFC1C7BA), height: 25),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/shopping-bag.svg',
-                    color: Color(0xFFC1C7BA), height: 25),
-                label: 'Shop',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/user.svg',
-                    color: bottomNavigationSelectedColor, height: 25),
-                label: 'My',
-              ),
-            ],
-            //type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
-            currentIndex: 2,
-            selectedItemColor: bottomNavigationSelectedColor,
-            selectedIconTheme:
-                IconThemeData(color: bottomNavigationSelectedColor),
-            unselectedItemColor: Color(0xFFB1B5A3),
-            selectedFontSize: 16,
-            unselectedFontSize: 14,
-            iconSize: 25,
-            onTap: (index) {
-              setState(() {
-                if (index == 0) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Dashboard()),
-                  );
-                }
-                else if(index==1) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProductReview()),
-                  );
-                }
-              });
-            },
-            elevation: 0,
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
+
+      return SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -186,7 +121,7 @@ class _ProfileState extends State<Profile> {
                                 topRight: Radius.circular(30))),
                         child: ListView(
                           children: [
-                            SizedBox(height: 15),
+
                             Divider(thickness: thikness, color: Colors.grey),
                             ProfileItem(
                                 text: 'My Collection',
@@ -275,8 +210,7 @@ class _ProfileState extends State<Profile> {
             )
           ],
         ),
-      ),
-    );
+      );
   }
 }
 

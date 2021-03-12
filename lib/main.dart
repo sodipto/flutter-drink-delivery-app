@@ -1,13 +1,4 @@
-import 'package:drink_app/pages/authPages/auth-page.dart';
-import 'package:drink_app/pages/authPages/login-page.dart';
-import 'package:drink_app/pages/cartPage/cart-page.dart';
-import 'package:drink_app/pages/commentPages/product-review.dart';
-import 'package:drink_app/pages/deliveryPages/delivery-page.dart';
-import 'package:drink_app/pages/detailsPage/details-page.dart';
-import 'package:drink_app/pages/homepage/dashboard.dart';
-import 'package:drink_app/pages/homepage/home-page.dart';
-import 'package:drink_app/pages/profilePage/profile-page.dart';
-import 'package:drink_app/pages/test-page.dart';
+import 'package:drink_app/route-provider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,7 +18,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: AuthPage()
+      //home: AuthPage()
+      initialRoute: "/",
+      onGenerateRoute: RouteProvider.generateRoute,
     );
   }
 }

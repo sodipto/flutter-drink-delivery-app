@@ -1,10 +1,6 @@
 import 'package:drink_app/constants/color-utils.dart';
 import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/models.dart';
-import 'package:drink_app/pages/commentPages/product-review.dart';
-import 'package:drink_app/pages/deliveryPages/delivery-page.dart';
-import 'package:drink_app/pages/homepage/dashboard.dart';
-import 'package:drink_app/pages/profilePage/profile-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -30,122 +26,38 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          Padding(
-            padding:  EdgeInsets.only(right:18),
-            child: IconButton(icon: Icon(Icons.shopping_cart,size: 28,color: appBarIConColor),  onPressed: () {}),
-          )
-        ],
-      ),
-      backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                  'assets/icons/home.svg',
-                  color: _selectedIndexTab==0?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                  'assets/icons/shopping-bag.svg',
-                  color: _selectedIndexTab==1?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
-              ),
-              label: 'Shop',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                  'assets/icons/user.svg',
-                  color: _selectedIndexTab==2?bottomNavigationSelectedColor:Color(0xFFC1C7BA),height: 30
-              ),
-              label: 'My',
-            ),
-          ],
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          currentIndex: _selectedIndexTab,
-          selectedItemColor: bottomNavigationSelectedColor,
-          selectedIconTheme: IconThemeData(
-            color: bottomNavigationSelectedColor
-          ),
-          unselectedItemColor: Color(0xFFB1B5A3),
-          selectedFontSize: 18,
-          unselectedFontSize: 16,
-          iconSize: 30,
-          onTap:(index){
-            setState(() {
-              _selectedIndexTab=index;
-              if(_selectedIndexTab==2) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Profile()),
-                );
-              }
-              else if(_selectedIndexTab==0) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Dashboard()),
-                );
-              }
-
-              else if(_selectedIndexTab==1) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProductReview()),
-                );
-              }
-            });
-          },
-        elevation: 3,
-      ),
-      body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+    return  SingleChildScrollView(
+        //physics: NeverScrollableScrollPhysics(),
         child: Padding(
-          padding:  EdgeInsets.symmetric(vertical: 6,horizontal: 18),
+          padding:  EdgeInsets.symmetric(vertical: MediaQuery.of(context).padding.top + 20,horizontal: 18),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height:  size.height * 0.15,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Shopping Cart",
-                        style:
-                        TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
-                    Text("A total of 3 pices",style: TextStyle(fontSize:18,color:opacityColor)),
-                    SizedBox(height: 30),
-                  ],
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Shopping Cart",
+                      style:
+                      TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 10),
+                  Text("A total of 3 pices",style: TextStyle(fontSize:18,color:opacityColor)),
+                ],
               ),
-              Container(
-                height: size.height * 0.50,
-                child: ListView(
-                  children: [
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: BouncingScrollPhysics(),
-                      itemCount: items.take(3).length,
-                      itemBuilder: (context, index) {
-                        CartItem item= items[index];
-                        // error show setState() or markNeedsBuild() called during build.
-                        // setState(() {
-                        //       totalBill+=item.price;
-                        // });
-                        return buildCartProduct(item);
-                      }
-                    )
-                  ],
-                ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
+                itemCount: items.take(3).length,
+                itemBuilder: (context, index) {
+                  CartItem item= items[index];
+                  // error show setState() or markNeedsBuild() called during build.
+                  // setState(() {
+                  //       totalBill+=item.price;
+                  // });
+                  return buildCartProduct(item);
+                }
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 20),
               Container(
                 height: 65,
                 width: double.infinity,
@@ -157,10 +69,7 @@ class _CartPageState extends State<CartPage> {
                   textColor: Colors.white,
                   padding: EdgeInsets.symmetric(vertical:12.0,horizontal: 30),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DeliveryPage()),
-                    );
+                    Navigator.pushNamed(context, '/delivery');
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,8 +96,7 @@ class _CartPageState extends State<CartPage> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Widget buildCartProduct(CartItem product) {
@@ -258,5 +166,4 @@ class _CartPageState extends State<CartPage> {
           ),
         ));
   }
-
 }

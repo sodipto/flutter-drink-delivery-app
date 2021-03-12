@@ -1,5 +1,4 @@
 import 'package:drink_app/constants/color-utils.dart';
-import 'package:drink_app/pages/homepage/home-page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
                     fit: BoxFit.cover)),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 35, horizontal: 20),
+            padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).padding.top +20, horizontal: 20),
             child: Text("Welcome \nBack",
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -126,11 +125,8 @@ class _LoginPageState extends State<LoginPage> {
             top: size.height * 0.50-40,
             right: 40,
             child: InkResponse(
-              onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
+              onTap: () {
+                Navigator.pushNamed(context, '/category');
               },
               child: CircleAvatar(
                 radius: 40,

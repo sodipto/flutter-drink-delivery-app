@@ -28,17 +28,16 @@ class _DeliveryPageState extends State<DeliveryPage> {
         position: LatLng(23.745035, 90.409906),
         markerId: MarkerId(Random().nextInt(100).toString()),
         infoWindow: InfoWindow(title: "Coolcat house", snippet: ''),
-        icon:  BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
         onTap: () {},
       ));
       markers.add(Marker(
         position: LatLng(23.74714029960101, 90.39888639003038),
         markerId: MarkerId(Random().nextInt(100).toString()),
         infoWindow: InfoWindow(title: "Tea Store", snippet: ''),
-        icon:  BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
         onTap: () {},
       ));
-
     });
   }
 
@@ -61,19 +60,17 @@ class _DeliveryPageState extends State<DeliveryPage> {
 
   Set<Circle> circles = Set.from([
     Circle(
-      circleId: CircleId("1"),
-      center: LatLng(23.74714029960101, 90.39888639003038),
-      radius: 150,
-      fillColor: brandColor ,
-      strokeWidth: 30,
-      strokeColor:Color(0xFFc8da99)
-    )
+        circleId: CircleId("1"),
+        center: LatLng(23.74714029960101, 90.39888639003038),
+        radius: 150,
+        fillColor: brandColor,
+        strokeWidth: 30,
+        strokeColor: Color(0xFFc8da99))
   ]);
 
   getIcons() async {
     var icon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(size: Size(70, 70)),
-        "assets/images/user.png");
+        ImageConfiguration(size: Size(70, 70)), "assets/images/user.png");
     setState(() {
       this.markerIcon = icon;
     });
@@ -103,7 +100,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 height: size.height * 0.40,
                 width: size.width,
                 child: GoogleMap(
-                  zoomControlsEnabled:false,
+                  zoomControlsEnabled: false,
                   mapType: MapType.normal,
                   initialCameraPosition: _initPosition,
                   onMapCreated: (GoogleMapController controller) {
@@ -118,9 +115,14 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 ),
               ),
               Positioned(
-                top: MediaQuery.of(context).padding.top+10,
+                top: MediaQuery.of(context).padding.top + 10,
                 left: 25,
-                child: SvgPicture.asset('assets/icons/left-arrow.svg',color: Colors.black),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                    child: SvgPicture.asset('assets/icons/left-arrow.svg',
+                        color: Colors.black)),
               ),
               Positioned(
                 bottom: -12,
@@ -144,7 +146,8 @@ class _DeliveryPageState extends State<DeliveryPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Image.asset('assets/images/D-2.gif',height: 80,width: 140,fit: BoxFit.cover),
+                      Image.asset('assets/images/D-2.gif',
+                          height: 80, width: 140, fit: BoxFit.cover),
                       SizedBox(width: 10),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -153,8 +156,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                         children: [
                           Text("Delivering...",
                               style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold)),
+                                  fontSize: 14, fontWeight: FontWeight.bold)),
                           SizedBox(height: 10),
                           Text("Around about 10:30 PM",
                               style: TextStyle(
@@ -163,10 +165,10 @@ class _DeliveryPageState extends State<DeliveryPage> {
                                   fontWeight: FontWeight.bold)),
                           SizedBox(height: 5),
                           OutlineButton(
-                              child:  Text("Refund"),
+                              child: Text("Refund"),
                               onPressed: null,
-                              shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(22.0))
-                          )
+                              shape: new RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(22.0)))
                         ],
                       )
                     ],
@@ -326,6 +328,6 @@ class _DeliveryPageState extends State<DeliveryPage> {
                   ),
                 ],
               )),
-  ));
+        ));
   }
 }

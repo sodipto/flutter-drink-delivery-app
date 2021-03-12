@@ -4,17 +4,16 @@ import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/data/static-data.dart';
 import 'package:drink_app/models.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
-import 'package:drink_app/pages/homepage/home-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:math';
 
-class Dashboard extends StatefulWidget {
+class ProductCategoryPage extends StatefulWidget {
   @override
-  _DashboardState createState() => _DashboardState();
+  _ProductCategoryPageState createState() => _ProductCategoryPageState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _ProductCategoryPageState extends State<ProductCategoryPage> {
 
   int selectedindex = 0;
 
@@ -51,10 +50,7 @@ class _DashboardState extends State<Dashboard> {
                               color: appBarIConColor, height: 26
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => HomePage()),
-                            );
+                            Navigator.pushNamed(context, '/home');
                           }
                       ),
                     )
@@ -91,24 +87,29 @@ class _DashboardState extends State<Dashboard> {
                         ),
                         itemBuilder: (context, index, realIdx) {
                           var product=Products[index];
-                          return Container(
-                            padding: EdgeInsets.all(20),
-                            width: 300,
-                            decoration: BoxDecoration(
-                              color: Converter.getColorFromHex(product.color),
-                              borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(product.name,style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w600)),
-                                SizedBox(height: 5),
-                                Text('Cool summer \nevent',style: TextStyle(fontSize: 16,color: Colors.white.withOpacity(0.8),fontWeight: FontWeight.w400)),
-                                SizedBox(height: 5),
-                                Expanded(child: Align(alignment:Alignment.center,child: Image.asset(product.imgfUrl,height: 200,fit: BoxFit.fitHeight))),
-                                Text('¥ 36.00',style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w600)),
-                              ],
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/home');
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              width: 300,
+                              decoration: BoxDecoration(
+                                color: Converter.getColorFromHex(product.color),
+                                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(product.name,style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w600)),
+                                  SizedBox(height: 5),
+                                  Text('Cool summer \nevent',style: TextStyle(fontSize: 16,color: Colors.white.withOpacity(0.8),fontWeight: FontWeight.w400)),
+                                  SizedBox(height: 5),
+                                  Expanded(child: Align(alignment:Alignment.center,child: Image.asset(product.imgfUrl,height: 200,fit: BoxFit.fitHeight))),
+                                  Text('¥ 36.00',style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w600)),
+                                ],
+                              ),
                             ),
                           );
                         },
@@ -190,10 +191,7 @@ class _DashboardState extends State<Dashboard> {
   Widget buildProductCard(Product product) {
     return GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ProductDetails()),
-          );
+          Navigator.pushNamed(context, '/product-details');
         },
         child: Padding(
           padding: EdgeInsets.only(right: 16),

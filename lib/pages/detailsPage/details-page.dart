@@ -1,6 +1,5 @@
 import 'package:drink_app/constants/color-utils.dart';
-import 'package:drink_app/pages/cartPage/cart-page.dart';
-import 'package:drink_app/pages/commentPages/product-review.dart';
+import 'package:drink_app/pages/homePages/home-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,35 +10,13 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  IconData favouriteIcon = Icons.favorite_outline_sharp;
+  Color favouriteIconColor= Color(0xFFC1C7BA);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xFF9FC743),
-      //   elevation: 0,
-      //   leading: Padding(
-      //     padding: EdgeInsets.only(left:16.0),
-      //     child: IconButton(
-      //         icon: SvgPicture.asset(
-      //             'assets/icons/left-arrow.svg',
-      //             color: Colors.white,height: 25
-      //         ),
-      //         onPressed: () => Navigator.pop(context)
-      //     ),
-      //   ),
-      //   actions: [
-      //     Padding(
-      //       padding:  EdgeInsets.only(right:12.0),
-      //       child: IconButton(
-      //         icon: SvgPicture.asset(
-      //           'assets/icons/shopping-bag.svg',
-      //           color: Colors.white,height: 25
-      //       ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
       backgroundColor: Color(0xFF9FC743),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -62,20 +39,24 @@ class _ProductDetailsState extends State<ProductDetails> {
                     color: Color(0xFFC1C7BA),height: 25
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProductReview()),
-                  );
+                  Navigator.pushNamed(context, '/review');
                 }
                 ),
             IconButton(
-                icon: Icon(Icons.favorite_outline_sharp,
-                    size: 30, color: Color(0xFFC1C7BA)),
+                icon: Icon(favouriteIcon,
+                    size: 30,
+                    color: favouriteIconColor),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProductReview()),
-                  );
+                   setState(() {
+                     if(favouriteIcon==Icons.favorite_outline_sharp){
+                       favouriteIcon =Icons.favorite;
+                       favouriteIconColor=brandColor;
+                     }
+                     else {
+                       favouriteIcon = Icons.favorite_outline_sharp;
+                       favouriteIconColor=Color(0xFFC1C7BA);
+                     }
+                   });
                 }),
             Container(
               height: 65,
@@ -90,7 +71,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CartPage()),
+                    MaterialPageRoute(builder: (context) => HomePage(index: 1)),
                   );
                 },
                 child: Text(
@@ -184,7 +165,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     child: Container(
                       height: size.height/2+80,
                       width: size.width,
-                      padding: EdgeInsets.only(top: size.height * 0.06 , left: 20,right: 8,bottom: 70),
+                      padding: EdgeInsets.only(top: 10, left: 20,right: 20,bottom: 70),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -194,10 +175,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                       child: ListView(
                         //crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Particulars",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold)),
+                          Text("Particulars",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold)),
                           SizedBox(height: 15),
-                          Text("There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 18,fontFamily: 'Open Sans')),
-                          SizedBox(height: 25),
+                          Text("There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 16,fontFamily: 'Open Sans')),
+                          SizedBox(height: 20),
                           Row(
                             children: [
                               Icon(Icons.star,size: 25,color: Color(0xFF86C100)),
@@ -211,15 +192,16 @@ class _ProductDetailsState extends State<ProductDetails> {
                               Icon(Icons.star,size: 25,color: Color(0xFF86C100)),
                             ],
                           ),
-                          SizedBox(height: 25),
+                          SizedBox(height: 20),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
                                 height: 100,
-                                width: 100,
+                                width: (size.width/3) - 20,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFEDF5DA),
-                                  borderRadius: BorderRadius.circular(25),
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -230,13 +212,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   ],
                                 ),
                               ),
-                              SizedBox(width: 15),
                               Container(
                                 height: 100,
-                                width: 100,
+                                width: (size.width/3)- 20,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFEDF5DA),
-                                  borderRadius: BorderRadius.circular(25),
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -247,13 +228,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   ],
                                 ),
                               ),
-                              SizedBox(width: 15),
                               Container(
                                 height: 100,
-                                width: 100,
+                                width: (size.width/3)- 20,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFEDF5DA),
-                                  borderRadius: BorderRadius.circular(25),
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -266,14 +246,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 25),
-                          Text("Service",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold)),
                           SizedBox(height: 15),
-                          Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 18)),
-                          SizedBox(height: 30),
-                          Text("Description",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold)),
+                          Text("Service",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold)),
                           SizedBox(height: 15),
-                          Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 18)),
+                          Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 16)),
+                          SizedBox(height: 15),
+                          Text("Description",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold)),
+                          SizedBox(height: 15),
+                          Text("There are many variations of passages of Lorem Ipsum available.",style: TextStyle(color: Colors.black.withOpacity(0.50),fontSize: 16)),
                           SizedBox(height: 30),
                         ],
                       ),

@@ -26,6 +26,7 @@ dependencies:
   flutter_svg: ^0.19.0
   carousel_slider: ^3.0.0
   google_maps_flutter: ^1.2.0
+  page_transition: "^1.1.5"
 
 
   # The following adds the Cupertino Icons font to your application.

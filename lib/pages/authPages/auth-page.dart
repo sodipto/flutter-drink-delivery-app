@@ -1,6 +1,4 @@
 import 'package:drink_app/constants/color-utils.dart';
-import 'package:drink_app/pages/authPages/login-page.dart';
-import 'package:drink_app/pages/homepage/home-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -68,10 +66,7 @@ class _AuthPageState extends State<AuthPage> {
                          textColor: Colors.white,
                          padding: EdgeInsets.all(12.0),
                          onPressed: () {
-                           Navigator.push(
-                             context,
-                             MaterialPageRoute(builder: (context) => LoginPage()),
-                           );
+                           Navigator.pushNamed(context, '/login');
                          },
                          child: Text(
                            "Logon",
@@ -87,10 +82,7 @@ class _AuthPageState extends State<AuthPage> {
                        width: 170,
                        child: FlatButton(
                          onPressed:(){
-                           Navigator.push(
-                             context,
-                             MaterialPageRoute(builder: (context) => LoginPage()),
-                           );
+                           Navigator.pushNamed(context, '/login');
                          },
                          child: Text(
                            "Sign in",
@@ -118,10 +110,7 @@ class _AuthPageState extends State<AuthPage> {
                      width: double.infinity,
                      child: FlatButton(
                        onPressed:() {
-                         Navigator.push(
-                           context,
-                           MaterialPageRoute(builder: (context) => LoginPage()),
-                         );
+                         Navigator.pushNamed(context, '/login');
                        },
                        child: Row(
                          mainAxisAlignment: MainAxisAlignment.center,
