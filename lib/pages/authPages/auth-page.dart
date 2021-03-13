@@ -21,8 +21,10 @@ class _AuthPageState extends State<AuthPage> {
             width: size.width,
             decoration: BoxDecoration(
                 image: DecorationImage(
+                    colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.srcOver),
                     image: AssetImage('assets/images/2.jpg'),
-                    fit: BoxFit.fitHeight)),
+                    fit: BoxFit.fitHeight)
+            ),
             child: Padding(
               padding: EdgeInsets.only(
                   top: MediaQuery.of(context).padding.top,
@@ -38,13 +40,26 @@ class _AuthPageState extends State<AuthPage> {
                           color:  Colors.white,
                           fontWeight: FontWeight.w900)),
                   SizedBox(height: 15),
-                  Text(
-                      'Welcome to the best app to order cold drink in the world.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500)),
+                  Padding(
+                    padding:  EdgeInsets.only(left:10,right: 10),
+                    child: Text(
+                        'Welcome to the best app to order cold drink in the world.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            height: 1.7,
+                            shadows: <Shadow>[
+                              Shadow(
+                                offset: Offset(0.0, 0.0),
+                                blurRadius: 4.0,
+                                color: Colors.white
+                              ),
+                            ],
+                        )
+                    ),
+                  ),
                   SizedBox(height: 10),
                   Container(
                     margin: EdgeInsets.only(top: size.height * 0.20),
@@ -61,7 +76,7 @@ class _AuthPageState extends State<AuthPage> {
                         Navigator.pushNamed(context, '/login');
                       },
                       child: Text(
-                        "Sign up",
+                        "Get Started",
                         style: TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold
