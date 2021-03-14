@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: ProductReviewPage()
-      //initialRoute: "/",
-      //onGenerateRoute: RouteProvider.generateRoute,
+      //home: ProductReviewPage()
+      initialRoute: "/",
+      onGenerateRoute: RouteProvider.generateRoute,
     );
   }
 }

@@ -28,7 +28,7 @@ class _TestPageState extends State<TestPage> {
                   height: size.height* 0.35,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/images/drink-van.PNG'),
+                          image: AssetImage('assets/images/drink-red.png'),
                           fit: BoxFit.fitHeight
                       )
                   ),
