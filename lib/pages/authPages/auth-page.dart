@@ -84,25 +84,6 @@ class _AuthPageState extends State<AuthPage> {
                       ),
                     ),
                   ),
-                  // Container(
-                  //     margin: EdgeInsets.only(top: size.height * 0.20),
-                  //     height: 55,
-                  //     width: size.width,
-                  //     child: FlatButton(
-                  //       onPressed: () {
-                  //         Navigator.pushNamed(context, '/login');
-                  //       },
-                  //       child: Text(
-                  //         "Get Started",
-                  //         style: TextStyle(fontSize: 20.0, color: brandColor),
-                  //       ),
-                  //       shape: RoundedRectangleBorder(
-                  //           side: BorderSide(
-                  //               color: brandColor,
-                  //               width: 1,
-                  //               style: BorderStyle.solid),
-                  //           borderRadius: BorderRadius.circular(30)),
-                  //     )),
                 ],
               ),
             ),

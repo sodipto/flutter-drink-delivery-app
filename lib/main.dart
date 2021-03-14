@@ -1,7 +1,10 @@
 import 'package:drink_app/pages/homePages/home-page.dart';
+import 'package:drink_app/pages/productPages/product-category.dart';
 import 'package:drink_app/pages/test-page.dart';
 import 'package:drink_app/route-provider.dart';
 import 'package:flutter/material.dart';
+
+import 'pages/reviewPages/product-review-page.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      home: HomePage()
+      home: ProductReviewPage()
       //initialRoute: "/",
       //onGenerateRoute: RouteProvider.generateRoute,
     );

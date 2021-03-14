@@ -1,12 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:drink_app/constants/color-utils.dart';
-import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/data/static-data.dart';
-import 'package:drink_app/models.dart';
-import 'package:drink_app/pages/detailsPage/details-page.dart';
+import 'package:drink_app/pages/productPages/components/category-item-card.dart';
+import 'package:drink_app/pages/productPages/components/category-new-product.dart';
+import 'package:drink_app/pages/productPages/components/category-text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'dart:math';
 
 class ProductCategoryPage extends StatefulWidget {
   @override
@@ -14,21 +12,16 @@ class ProductCategoryPage extends StatefulWidget {
 }
 
 class _ProductCategoryPageState extends State<ProductCategoryPage> {
-
   int selectedindex = 0;
 
   Widget build(BuildContext context) {
-    var size = MediaQuery
-        .of(context)
-        .size;
+    var size = MediaQuery.of(context).size;
 
     return Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsets.only(top: MediaQuery
-              .of(context)
-              .padding
-              .top + 20, left: 20),
+          padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top + 20, left: 20),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -38,22 +31,22 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Drink",
-                        style:
-                        TextStyle(fontSize: 32, fontWeight: FontWeight.w900)),
-                    Padding(
-                      padding: EdgeInsets.only(right:20.0),
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                          constraints: BoxConstraints(),
-                          icon: SvgPicture.asset(
-                              'assets/icons/menu.svg',
-                              color: AppBarIConColor, height: 26
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/home');
-                          }
-                      ),
-                    )
+                        style: TextStyle(
+                            fontSize: 32, fontWeight: FontWeight.w900)),
+                    // Padding(
+                    //   padding: EdgeInsets.only(right:20.0),
+                    //   child: IconButton(
+                    //     padding: EdgeInsets.zero,
+                    //       constraints: BoxConstraints(),
+                    //       icon: SvgPicture.asset(
+                    //           'assets/icons/menu.svg',
+                    //           color: AppBarIConColor, height: 26
+                    //       ),
+                    //       onPressed: () {
+                    //         Navigator.pushNamed(context, '/home');
+                    //       }
+                    //   ),
+                    // )
                   ],
                 ),
                 SizedBox(height: 30),
@@ -64,15 +57,26 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                     Container(
                       height: size.height * 0.50,
                       width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white
-                      ),
+                      decoration: BoxDecoration(color: Colors.white),
                       child: ListView.builder(
                           reverse: true,
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           itemCount: Catagories.length,
-                          itemBuilder: (context, index) => buildCatagory(index)),
+                          itemBuilder: (context, index) {
+                            var category = Catagories[index];
+                            return CategoryText(
+                              text: category,
+                              index: index,
+                              selectedIndex: selectedindex,
+                              isVertical: true,
+                              onPress: () {
+                                setState(() {
+                                  selectedindex = index;
+                                });
+                              },
+                            );
+                          }),
                     ),
                     Expanded(
                       child: CarouselSlider.builder(
@@ -84,33 +88,14 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                             enableInfiniteScroll: false,
                             viewportFraction: 0.8
                             //reverse: true
-                        ),
+                            ),
                         itemBuilder: (context, index, realIdx) {
-                          var product=Products[index];
-                          return GestureDetector(
-                            onTap: () {
+                          var product = Products[index];
+                          return CategoryItemCard(
+                            product: product,
+                            onPress: () {
                               Navigator.pushNamed(context, '/home');
                             },
-                            child: Container(
-                              padding: EdgeInsets.all(20),
-                              width: 300,
-                              decoration: BoxDecoration(
-                                color: Converter.getColorFromHex(product.color),
-                                borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(product.name,style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w600)),
-                                  SizedBox(height: 5),
-                                  Text('Cool summer \nevent',style: TextStyle(fontSize: 16,color: Colors.white.withOpacity(0.8),fontWeight: FontWeight.w400)),
-                                  SizedBox(height: 5),
-                                  Expanded(child: Align(alignment:Alignment.center,child: Image.asset(product.imgfUrl,height: 200,fit: BoxFit.fitHeight))),
-                                  Text('¥ 36.00',style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w600)),
-                                ],
-                              ),
-                            ),
                           );
                         },
                       ),
@@ -122,13 +107,15 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("New products",
-                        style:
-                        TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w900)),
                     Padding(
-                      padding: EdgeInsets.only(right:20.0),
+                      padding: EdgeInsets.only(right: 20.0),
                       child: Text("More",
-                          style:
-                          TextStyle(fontSize: 18, color: OpacityColor, fontWeight: FontWeight.w500)),
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: OpacityColor,
+                              fontWeight: FontWeight.w500)),
                     ),
                   ],
                 ),
@@ -139,94 +126,21 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: Products.length,
-                    itemBuilder: (context, index) => buildProductCard(Products[index]),
+                    itemBuilder: (context, index){
+                      var product = Products[index];
+                      return CategoryNewProductCard(
+                        product: product,
+                        onPress: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
+                      );
+                    },
                   ),
                 ),
                 SizedBox(height: 25),
               ],
             ),
           ),
-        )
-    );
-  }
-
-  Widget buildCatagory(int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedindex = index;
-        });
-      },
-      child: Container(
-        margin: EdgeInsets.only(top: 25),
-        child: RotatedBox(
-          quarterTurns: 3,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              selectedindex == index? Container(
-                margin: EdgeInsets.only(top: 10),
-                height: 8,
-                width: 10,
-                decoration: BoxDecoration(
-                  color: BrandColor,
-                  shape: BoxShape.circle
-                ),
-              ):Container(),
-              SizedBox(width: selectedindex == index?5:0),
-              Text(Catagories[index],
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: selectedindex == index?FontWeight.bold:FontWeight.w400,
-                      color: selectedindex == index
-                          ? Color(0xFF58910F)
-                          : OpacityColor)),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-  Widget buildProductCard(Product product) {
-    return GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, '/product-details');
-        },
-        child: Padding(
-          padding: EdgeInsets.only(right: 16),
-          child: Stack(
-            overflow: Overflow.visible,
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                padding: EdgeInsets.only(bottom: 20),
-                width: 140,
-                decoration: BoxDecoration(
-                    color: Converter.getColorFromHex(product.color), borderRadius: BorderRadius.circular(16)),
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                      product.name,
-                      style: TextStyle(fontSize: 18, color: Colors.white)),
-                ),
-              ),
-              Positioned(
-                top: -5,
-                left: 20,
-                child: Container(
-                    height: 100,
-                    width: 100,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/drink-red.png')
-                          )
-                      ),
-                    )),
-              )
-            ],
-          )
         ));
   }
 }

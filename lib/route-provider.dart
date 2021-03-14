@@ -1,6 +1,5 @@
 import 'package:drink_app/pages/authPages/auth-page.dart';
 import 'package:drink_app/pages/authPages/login-page.dart';
-import 'package:drink_app/pages/commentPages/product-review.dart';
 import 'package:drink_app/pages/deliveryPages/delivery-page.dart';
 import 'package:drink_app/pages/detailsPage/details-page.dart';
 import 'package:drink_app/pages/homePages/home-page.dart';
@@ -8,6 +7,8 @@ import 'package:drink_app/pages/productPages/product-category.dart';
 import 'package:drink_app/pages/test-page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+
+import 'pages/reviewPages/product-review-page.dart';
 
 class RouteProvider {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -25,7 +26,7 @@ class RouteProvider {
       case '/delivery':
         return PageTransition(child: DeliveryPage(),curve: Curves.linear, type: PageTransitionType.rightToLeft);
       case '/review':
-        return PageTransition(child: ProductReview(),curve: Curves.linear, type: PageTransitionType.rightToLeft);
+        return PageTransition(child: ProductReviewPage(),curve: Curves.linear, type: PageTransitionType.rightToLeft);
 
     //   Map<String, dynamic> values =
     //   settings.arguments as Map<String, dynamic>;
