@@ -64,10 +64,10 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: new InputDecoration(
                           hintText: 'Email',
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: brandColor),
+                            borderSide: BorderSide(color: BrandColor),
                           ),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: brandColor),
+                            borderSide: BorderSide(color: BrandColor),
                           ),
                         ),
                       ),
@@ -79,17 +79,17 @@ class _LoginPageState extends State<LoginPage> {
                             decoration: new InputDecoration(
                               hintText: 'Password',
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: brandColor),
+                                borderSide: BorderSide(color: BrandColor),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: brandColor),
+                                borderSide: BorderSide(color: BrandColor),
                               ),
                             ),
                           ),
                           Positioned(
                             right: 0,
                             child: IconButton(
-                              icon: Icon(Icons.remove_red_eye_outlined,color: brandColor),
+                              icon: Icon(Icons.remove_red_eye_outlined,color: BrandColor),
                               onPressed: (){
                                 setState(() {
                                   isHidePassword= isHidePassword?false:true;
@@ -106,14 +106,14 @@ class _LoginPageState extends State<LoginPage> {
                           Expanded(
                             child: Text("Forgot password?",
                                 style: TextStyle(
-                                    color: brandColor,
+                                    color: BrandColor,
                                     fontSize: 18)
                             ),
                           ),
 
                           Text("Sign up",
                               style: TextStyle(
-                                  color: brandColor,
+                                  color: BrandColor,
                                   fontSize: 18)),
                         ],
                       )

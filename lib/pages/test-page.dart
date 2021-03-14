@@ -50,7 +50,7 @@ class _TestPageState extends State<TestPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Drink the best drink in town!", textAlign: TextAlign.center, style: TextStyle(color: brandColor,fontSize: 28,fontWeight: FontWeight.bold)),
+                  Text("Drink the best drink in town!", textAlign: TextAlign.center, style: TextStyle(color: BrandColor,fontSize: 28,fontWeight: FontWeight.bold)),
                   SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,7 +62,7 @@ class _TestPageState extends State<TestPage> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                          color: buttonColor,
+                          color: ButtonColor,
                           textColor: Colors.white,
                           padding: EdgeInsets.all(12.0),
                           onPressed: () {
@@ -88,14 +88,14 @@ class _TestPageState extends State<TestPage> {
                               "Sign in",
                               style: TextStyle(
                                   fontSize: 20.0,
-                                  color: brandColor,
+                                  color: BrandColor,
                                   fontWeight: FontWeight.bold
                               ),
                             ),
                             textColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 side: BorderSide(
-                                    color: brandColor,
+                                    color: BrandColor,
                                     width: 1,
                                     style: BorderStyle.solid
                                 ),
@@ -117,7 +117,7 @@ class _TestPageState extends State<TestPage> {
                           children: [
                             SvgPicture.asset(
                                 'assets/icons/facebook.svg',
-                                color: brandColor,
+                                color: BrandColor,
                                 height: 25
                             ),
                             SizedBox(width:10),
@@ -125,7 +125,7 @@ class _TestPageState extends State<TestPage> {
                               "Connect with Facebook",
                               style: TextStyle(
                                   fontSize: 20.0,
-                                  color: brandColor
+                                  color: BrandColor
                               ),
                             ),
                           ],
@@ -133,7 +133,7 @@ class _TestPageState extends State<TestPage> {
                         textColor: Colors.white,
                         shape: RoundedRectangleBorder(
                             side: BorderSide(
-                                color: brandColor,
+                                color: BrandColor,
                                 width: 1,
                                 style: BorderStyle.solid
                             ),

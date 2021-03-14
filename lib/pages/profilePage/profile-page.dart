@@ -176,7 +176,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 SizedBox(height: 3),
                                 Text('Balance',
                                     style: TextStyle(
-                                        color: opacityColor,
+                                        color: OpacityColor,
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400))
                               ],
@@ -190,14 +190,14 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 SvgPicture.asset(
                                   'assets/icons/wallet.svg',
-                                  color: brandColor,
+                                  color: BrandColor,
                                   height: 24,
                                   width: 24,
                                 ),
                                 SizedBox(height: 3),
                                 Text('My Wallet',
                                     style: TextStyle(
-                                        color: opacityColor,
+                                        color: OpacityColor,
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500))
                               ],
@@ -230,7 +230,7 @@ class ProfileItem extends StatelessWidget {
       contentPadding: EdgeInsets.only(left: 0.0, right: 0.0, top: 0, bottom: 0),
       leading: SvgPicture.asset(
         this.icon,
-        color: brandColor,
+        color: BrandColor,
         height: 22,
         width: 22,
       ),

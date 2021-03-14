@@ -50,7 +50,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                    setState(() {
                      if(favouriteIcon==Icons.favorite_outline_sharp){
                        favouriteIcon =Icons.favorite;
-                       favouriteIconColor=brandColor;
+                       favouriteIconColor=BrandColor;
                      }
                      else {
                        favouriteIcon = Icons.favorite_outline_sharp;
@@ -65,7 +65,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                color: buttonColor,
+                color: ButtonColor,
                 textColor: Colors.white,
                 padding: EdgeInsets.all(12.0),
                 onPressed: () {

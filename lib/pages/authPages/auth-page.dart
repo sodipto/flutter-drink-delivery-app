@@ -69,7 +69,7 @@ class _AuthPageState extends State<AuthPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
-                      color: buttonColor,
+                      color: ButtonColor,
                       textColor: Colors.white,
                       padding: EdgeInsets.all(12.0),
                       onPressed: () {

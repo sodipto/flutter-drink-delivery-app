@@ -62,7 +62,7 @@ class _ProductReviewState extends State<ProductReview> {
                   height: 120,
                   width: size.width,
                   decoration: BoxDecoration(
-                      color: brandColor,
+                      color: BrandColor,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(35),
                         topRight: Radius.circular(35),
@@ -151,7 +151,7 @@ class _ProductReviewState extends State<ProductReview> {
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         border: Border.all(
-                                            width: 1.5, color: brandColor),
+                                            width: 1.5, color: BrandColor),
                                         shape: BoxShape.circle,
                                       ),
                                       child: Container(
@@ -165,7 +165,7 @@ class _ProductReviewState extends State<ProductReview> {
                                     ),
                                     title: Text(user.username,
                                         style: TextStyle(
-                                            color: opacityColor,
+                                            color: OpacityColor,
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500)),
                                     subtitle: Padding(
@@ -188,7 +188,7 @@ class _ProductReviewState extends State<ProductReview> {
                         height: 60,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            color: opacityBgColor,
+                            color: OpacityBgColor,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(50))),
                         child: Row(
@@ -211,7 +211,7 @@ class _ProductReviewState extends State<ProductReview> {
                                     border: InputBorder.none,
                                     hintText: 'Add a comment...',
                                     hintStyle: TextStyle(
-                                        color: opacityColor, fontSize: 16)),
+                                        color: OpacityColor, fontSize: 16)),
                               ),
                             ),
                           ],

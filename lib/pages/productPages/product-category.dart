@@ -47,7 +47,7 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                           constraints: BoxConstraints(),
                           icon: SvgPicture.asset(
                               'assets/icons/menu.svg',
-                              color: appBarIConColor, height: 26
+                              color: AppBarIConColor, height: 26
                           ),
                           onPressed: () {
                             Navigator.pushNamed(context, '/home');
@@ -128,7 +128,7 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                       padding: EdgeInsets.only(right:20.0),
                       child: Text("More",
                           style:
-                          TextStyle(fontSize: 18, color: opacityColor, fontWeight: FontWeight.w500)),
+                          TextStyle(fontSize: 18, color: OpacityColor, fontWeight: FontWeight.w500)),
                     ),
                   ],
                 ),
@@ -170,7 +170,7 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                 height: 8,
                 width: 10,
                 decoration: BoxDecoration(
-                  color: brandColor,
+                  color: BrandColor,
                   shape: BoxShape.circle
                 ),
               ):Container(),
@@ -181,7 +181,7 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
                       fontWeight: selectedindex == index?FontWeight.bold:FontWeight.w400,
                       color: selectedindex == index
                           ? Color(0xFF58910F)
-                          : opacityColor)),
+                          : OpacityColor)),
             ],
           ),
         ),

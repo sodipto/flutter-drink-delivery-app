@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-Color bottomNavigationSelectedColor= Color(0xFF86C100);
-Color brandColor= Color(0xFF86C100);
-Color opacityColor= Color(0xFFB1B5A3);
-Color appBarIConColor= Color(0xFFC1C7BA);
-Color buttonColor= Color(0xFF86C100);
-Color IConColor= Color(0xFFC1C7BA);
-Color opacityBgColor= Color(0xFFf5f6f2);
+const Color BottomNavigationSelectedColor= Color(0xFF86C100);
+const Color BrandColor= Color(0xFF86C100);
+const Color OpacityColor= Color(0xFFB1B5A3);
+const Color AppBarIConColor= Color(0xFFC1C7BA);
+const Color ButtonColor= Color(0xFF86C100);
+const Color IConColor= Color(0xFFC1C7BA);
+const Color OpacityBgColor= Color(0xFFf5f6f2);

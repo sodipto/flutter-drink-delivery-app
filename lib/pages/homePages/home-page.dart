@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
                       'assets/icons/home.svg',
-                      color: _selectedIndex==0?bottomNavigationSelectedColor:Color(0xFFC1C7BA),
+                      color: _selectedIndex==0?BottomNavigationSelectedColor:Color(0xFFC1C7BA),
                       height: 25
                   ),
                   label: 'Home',
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
                       'assets/icons/shopping-bag.svg',
-                      color: _selectedIndex==1?bottomNavigationSelectedColor:Color(0xFFC1C7BA),
+                      color: _selectedIndex==1?BottomNavigationSelectedColor:Color(0xFFC1C7BA),
                       height: 25
                   ),
                   label: 'Shop',
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
                       'assets/icons/user.svg',
-                      color: _selectedIndex==2?bottomNavigationSelectedColor:Color(0xFFC1C7BA),
+                      color: _selectedIndex==2?BottomNavigationSelectedColor:Color(0xFFC1C7BA),
                       height: 25
                   ),
                   label: 'My',
@@ -78,9 +78,9 @@ class _HomePageState extends State<HomePage> {
               //type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.white,
               currentIndex: _selectedIndex,
-              selectedItemColor: bottomNavigationSelectedColor,
+              selectedItemColor: BottomNavigationSelectedColor,
               selectedIconTheme: IconThemeData(
-                  color: bottomNavigationSelectedColor
+                  color: BottomNavigationSelectedColor
               ),
               unselectedItemColor: Color(0xFFB1B5A3),
               selectedFontSize: 16,

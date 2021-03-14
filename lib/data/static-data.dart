@@ -36,3 +36,14 @@ List<Review> ReviewList=[
   new Review('Juice lover','assets/images/user.png','Chomotkar!'),
   new Review('D Costa','assets/images/user.png','Awesome!'),
 ];
+
+List<CartItem> Cartitems =[
+  new CartItem('Green Tea','9FC743','assets/images/drink-red.png',1,36),
+  new CartItem('Rose Tea','CBDB51','assets/images/drink-red.png',2,24),
+  new CartItem('Black Tea','E8DC9A','assets/images/drink-red.png',1,26),
+  new CartItem('Jasmine tea','FFE4E4','assets/images/drink-red.png',1,25),
+  new CartItem('Green Tea','9FC743','assets/images/drink-red.png',1,27),
+  new CartItem('Jasmine Tea','CBDB51','assets/images/drink-red.png',5,19),
+  new CartItem('Black Tea','E8DC9A','assets/images/drink-red.png',1,18),
+  new CartItem('Rose tea','FFE4E4','assets/images/drink-red.png',1,17),
+];

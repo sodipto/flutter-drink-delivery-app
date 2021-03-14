@@ -1,6 +1,7 @@
 import 'package:drink_app/constants/color-utils.dart';
 import 'package:drink_app/constants/converter-helper.dart';
 import 'package:drink_app/data/static-data.dart';
+import 'package:drink_app/pages/productPages/components/category-text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -33,7 +34,7 @@ class _ProductPageState extends State<ProductPage> {
                 IconButton(
                     icon: SvgPicture.asset(
                         'assets/icons/category.svg',
-                        color: brandColor,height: 30
+                        color: BrandColor,height: 30
                     ),
                     onPressed: () {
                       Navigator.pushNamed(context, '/category');
@@ -69,7 +70,20 @@ class _ProductPageState extends State<ProductPage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: TeaCatagories.length,
-                  itemBuilder: (context, index) => buildCatagory(index)),
+                  itemBuilder: (context, index) {
+                    var category=TeaCatagories[index];
+                    return CategoryText(
+                      text: category,
+                      index: index,
+                      selectedIndex: selectedindex,
+                      onPress: () {
+                        setState(() {
+                          selectedindex=index;
+                        });
+                      },
+                    );
+                  }
+              ),
             ),
             SizedBox(height: 30),
             Container(
@@ -96,42 +110,7 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
   }
-
-  Widget buildCatagory(int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedindex = index;
-        });
-      },
-      child: Padding(
-        padding: EdgeInsets.only(right: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(TeaCatagories[index],
-                //textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontWeight: selectedindex == index ?FontWeight.bold:FontWeight.w400,
-                    fontSize: selectedindex == index ? 16 : 16,
-                    color: selectedindex == index
-                        ? Color(0xFF58910F)
-                        : Colors.black)),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              height: 4,
-              width: 40,
-              color: selectedindex == index
-                  ? Color(0xFFCBE19D)
-                  : Colors.transparent,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
+  
   Widget buildProductCard(Product product) {
     return GestureDetector(
         onTap: () {
@@ -191,7 +170,7 @@ class _ProductPageState extends State<ProductPage> {
                       children: [
                         Text(product.name,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Color(0xFF1F2906))),
                         SizedBox(height: 10),
-                        Text("Signature Product",style: TextStyle(color:opacityColor)),
+                        Text("Signature Product",style: TextStyle(color:OpacityColor)),
                       ],
                     ),
                   ),

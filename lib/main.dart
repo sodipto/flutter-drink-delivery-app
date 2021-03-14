@@ -1,3 +1,4 @@
+import 'package:drink_app/pages/homePages/home-page.dart';
 import 'package:drink_app/pages/test-page.dart';
 import 'package:drink_app/route-provider.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Open Sans'
       ),
-      //home: TestPage()
-      initialRoute: "/",
-      onGenerateRoute: RouteProvider.generateRoute,
+      home: HomePage()
+      //initialRoute: "/",
+      //onGenerateRoute: RouteProvider.generateRoute,
     );
   }
 }

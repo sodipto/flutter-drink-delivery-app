@@ -49,7 +49,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
           LatLng(23.74714029960101, 90.39888639003038),
           LatLng(23.745035, 90.409906)
         ],
-        color: brandColor,
+        color: BrandColor,
         width: 4));
   }
 
@@ -63,7 +63,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
         circleId: CircleId("1"),
         center: LatLng(23.74714029960101, 90.39888639003038),
         radius: 150,
-        fillColor: brandColor,
+        fillColor: BrandColor,
         strokeWidth: 30,
         strokeColor: Color(0xFFc8da99))
   ]);
@@ -161,7 +161,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                           Text("Around about 10:30 PM",
                               style: TextStyle(
                                   fontSize: 13,
-                                  color: brandColor,
+                                  color: BrandColor,
                                   fontWeight: FontWeight.bold)),
                           SizedBox(height: 5),
                           OutlineButton(
@@ -214,7 +214,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                           Text("Delivery fee",
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: opacityColor,
+                                  color: OpacityColor,
                                   fontWeight: FontWeight.w500)),
                           Text("¥ 2",
                               style: TextStyle(
@@ -236,12 +236,12 @@ class _DeliveryPageState extends State<DeliveryPage> {
                           Text("Coupon",
                               style: TextStyle(
                                   fontSize: 14,
-                                  color: opacityColor,
+                                  color: OpacityColor,
                                   fontWeight: FontWeight.bold)),
                           Text("-¥ 4.00",
                               style: TextStyle(
                                   fontSize: 14,
-                                  color: brandColor,
+                                  color: BrandColor,
                                   fontWeight: FontWeight.bold)),
                         ],
                       ),
@@ -308,7 +308,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                         SizedBox(height: 5),
                         Text("big/ice",
                             style:
-                                TextStyle(fontSize: 16, color: opacityColor)),
+                                TextStyle(fontSize: 16, color: OpacityColor)),
                         SizedBox(height: 5),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
