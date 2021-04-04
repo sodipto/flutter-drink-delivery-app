@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: ProductReviewPage()
       initialRoute: "/",
-      onGenerateRoute: RouteProvider.generateRoute,
+      onGenerateRoute: RouteProvider.generateRoute ,
     );
   }
 }
